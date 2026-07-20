@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danielle Cenido | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8a1538; /* Sophisticated Carondelet Crimson */
+            --primary-light: #b01f48;
+            --secondary: #1e293b; /* Dark Slate for Tech/Software vibe */
+            --light: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            background-color: rgba(138, 21, 56, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards & Content Blocks */
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* About Section Custom Elements */
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-highlights {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-icon {
+            background: rgba(138, 21, 56, 0.1);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-details h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .highlight-details p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Skills & Awards Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #e2e8f0;
+            color: var(--secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag.special {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .award-list {
+            list-style: none;
+        }
+
+        .award-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .award-list i {
+            color: #eab308; /* Gold icon */
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Contact Details */
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified mobile view */
+            .contact-methods { gap: 1.5rem; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Danielle<span>Cenido</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Leadership</a></li>
+            <li><a href="#academics">Academics & STEM</a></li>
+            <li><a href="#athletics">Athletics</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+        <div class="hero-content">
+            <span class="badge">Carondelet High School • Class of 2027</span>
+            <h1>Hi, I'm Danielle Cenido</h1>
+            <p>A driven student leader, software programming enthusiast, and national champion athlete blending analytical focus with dedication.</p>
+            <a href="#about" class="btn">Explore My Portfolio</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="grid-2">
+            <div class="about-text">
+                <p>I am an incoming senior at Carondelet High School in Concord, CA, with a profound passion for STEM—specifically software development and programming. I thrive on diving into complex code, systematically testing, and debugging to create meaningful applications.</p>
+                <p>Beyond the classroom and lab, I have dedicated myself to competitive cheerleading since the age of four. Balancing rigorous academics with elite athletics has instilled a deep work ethic, strong organizational habits, and an unwavering commitment to excellence in everything I take on.</p>
+                <p>Whether I am leading peer groups at school, tutoring teammates, or engineering creative tactile projects at home, I lean into building community and helping those around me succeed collectively.</p>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="highlight-details">
+                        <h4>Software & Tech Focus</h4>
+                        <p>Immersed in programs through Verizon STEM and VEX Robotics.</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="highlight-details">
+                        <h4>Grounded Community Leader</h4>
+                        <p>Dedicated Peer Counselor, Retreat Leader, and Cheer Captain.</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="highlight-details">
+                        <h4>Elite Competitor</h4>
+                        <p>Cheerleading Triple Crown Winner (NCA, Summit, and State titles).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Leadership Section -->
+    <section id="experience" style="background-color: #fff; max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">Leadership & Community Impact</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="timeline-date">APRIL 2026 - PRESENT</span>
+                    <h3>Student Leader</h3>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Kairos Retreat</p>
+                    <p>Entrusted with planning, framing, and coordinating key foundational activities for the immersive 3-day high school student retreat.</p>
+                </div>
+                <div class="card">
+                    <span class="timeline-date">AUGUST 2025 - PRESENT</span>
+                    <h3>Student Leader</h3>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Peer Counseling</p>
+                    <p>Actively welcome and onboard incoming new students to ensure a smooth transition, creating inclusive events like school community movie nights.</p>
+                </div>
+                <div class="card">
+                    <span class="timeline-date">AUGUST 2024 - PRESENT</span>
+                    <h3>Academic Tutor</h3>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">National Honor Society</p>
+                    <p>Guide and support high school peers through core Math and Science curriculum, structuring targeted assignment reviews and test preparation sessions.</p>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 2.5rem;">
+                <div class="card">
+                    <span class="timeline-date">2023 - PRESENT</span>
+                    <h3>Active Member</h3>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">California Scholarship Federation</p>
+                    <p>Consistently uphold strict GPA metrics, spearhead fundraising campaigns, and organize high-impact campus events.</p>
+                </div>
+                <div class="card">
+                    <span class="timeline-date">ADDITIONAL SERVICE</span>
+                    <h3>Youth Group & Event Leader</h3>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">St. Mary’s Church & Community Center</p>
+                    <p>Volunteer server for community Crab Feeds and serve as a designated youth mentor orchestrating holiday events and activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics & STEM Section -->
+    <section id="academics">
+        <h2 class="section-title">Academic & Technical Profile</h2>
+        <div class="grid-2">
+            <div>
+                <h3 style="margin-bottom: 1.5rem; color: var(--secondary);"><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 0.5rem;"></i> Education</h3>
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h3>Carondelet High School</h3>
+                    <p class="timeline-date">Class of 2027</p>
+                    <p>Straight-A Student maintaining a rigorous 4.x GPA throughout high school enrollment.</p>
+                </div>
+                
+                <h3 style="margin-bottom: 1.5rem; color: var(--secondary);"><i class="fa-solid fa-medal" style="color: var(--primary); margin-right: 0.5rem;"></i> Distinctions & Awards</h3>
+                <ul class="award-list">
+                    <li><i class="fa-solid fa-award"></i> <span><strong>CollegeBoard School Recognition Award</strong></span></li>
+                    <li><i class="fa-solid fa-award"></i> <span><strong>Worcester Polytechnic Innovation Award</strong></span></li>
+                    <li><i class="fa-solid fa-award"></i> <span><strong>North Coast Section (NCS) President’s List</strong></span></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 style="margin-bottom: 1.5rem; color: var(--secondary);"><i class="fa-solid fa-microscope" style="color: var(--primary); margin-right: 0.5rem;"></i> STEM Immersion</h3>
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h3>Verizon STEM Exploration</h3>
+                    <p class="timeline-date">Stockton, CA | 2023 - Present</p>
+                    <p>Engaged in advanced learning tracks centered around technical innovation, critical problem-solving paradigms, and emerging technology concepts.</p>
+                </div>
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h3>VEX Robotics Program</h3>
+                    <p class="timeline-date">Mountain View, CA | 2023 - Present</p>
+                    <p>Hands-on engineering focus developing structural components and logical algorithms for mechanical robotic applications.</p>
+                </div>
+                
+                <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">Skills</h3>
+                <div class="tag-container">
+                    <span class="tag special">Software Programming & Logic</span>
+                    <span class="tag">Analytical Problem Solving</span>
+                    <span class="tag">Google Workspace</span>
+                    <span class="tag">Group Collaboration & Sync</span>
+                    <span class="tag">Effective Communication</span>
+                    <span class="tag">English</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Athletics Section -->
+    <section id="athletics" style="background-color: #fff; max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">Athletic Achievements</h2>
+            <div class="grid-2" style="margin-bottom: 3rem;">
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Elite All-Star & High School Cheer</h3>
+                    <p style="margin-bottom: 1rem;">Dedicated to the craft of elite athletics since age 4, performing at the highest national levels requiring absolute technical precision, synchronization, and immense physical discipline.</p>
+                    <p>In a historic competitive run with the <strong>California All Stars Livermore</strong>, helped secure the sport's coveted <strong>"Triple Crown"</strong> titles, bringing significant national athletic recognition back to the local Bay Area community.</p>
+                </div>
+                <div style="background: var(--light); padding: 2rem; border-radius: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem;"><i class="fa-solid fa-trophy"></i> Title Highlights</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.75rem; display: flex; justify-content: space-between;"><strong>D1 Summit Champion</strong> <span>Orlando, FL</span></li>
+                        <li style="margin-bottom: 0.75rem; display: flex; justify-content: space-between;"><strong>2x NCA National Champion</strong> <span>Dallas, TX</span></li>
+                        <li style="margin-bottom: 0.75rem; display: flex; justify-content: space-between;"><strong>USA National Champion</strong> <span>Regional</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card" style="border-top-color: var(--secondary);">
+                    <h3>Varsity Sideline Cheer</h3>
+                    <span class="timeline-date">Carondelet High School</span>
+                    <p>Appointed <strong>Cheer Captain (2026)</strong>. Lead the team dynamically on and off the field, actively fostering growth, mentoring younger incoming athletes, and maintaining core team traditions.</p>
+                </div>
+                <div class="card" style="border-top-color: var(--secondary);">
+                    <h3>Varsity STUNT Athlete</h3>
+                    <span class="timeline-date">Carondelet High School</span>
+                    <p>Exhibiting high athletic execution during continuous execution routines. Named <strong>Rookie of the Year</strong> in 2023 for stand-out athletic impacts during premier conference play.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-info">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-light);">Thank you for taking the time to view my portfolio. Please feel free to reach out regarding academic opportunities, athletic inquiries, or community collaborations.</p>
+            <div class="contact-methods">
+                <a href="mailto:danielle.cenido@gmail.com" class="contact-item"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> danielle.cenido@gmail.com</a>
+                <span class="contact-item"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> (209) 346-2626</span>
+                <span class="contact-item"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Concord, CA</span>
+            </div>
+            <div style="margin-top: 3rem;">
+                <a href="mailto:danielle.cenido@gmail.com" class="btn">Connect via Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Danielle Cenido. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #64748b;">Designed for Academic Portfolio & University Review.</p>
+    </footer>
+
+</body>
+</html>
